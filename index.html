@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Excuse Generator</title>
+    <style>
+      body {
+          font-family: Arial, sans-serif;
+          background-color: #f0f0f0;
+          margin: 0;
+          padding: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+      }
+
+      #excuse-container {
+          text-align: center;
+          background-color: #fff;
+          padding: 20px;
+          border-radius: 8px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      #excuse {
+          font-size: 18px;
+          margin-bottom: 20px;
+      }
+
+      button {
+          background-color: #4caf50;
+          color: #fff;
+          border: none;
+          padding: 10px 20px;
+          font-size: 16px;
+          border-radius: 4px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+          background-color: #45a049;
+      }
+  </style>
+  </head>
+  <body>
+    <div id="excuse-container">
+      <h1>Excuse Generator</h1>
+
+      <p id="excuse"></p>
+
+      <button onclick="generateNewExcuse">Generate New Excuse</button>
+    </div>
+    <script>
+        let who = ['The dog', 'My grandma', 'The mailman', 'My bird' ];
+        let action = ['ate', 'urinated on', 'crushed', 'broken'];
+        let what = ['my homework', 'my phone', 'the car'];
+        let when = ['before class', 'while I was sleeping', 'while I was exercising','during my lunch','while i was praying'];
+
+        function generateexcuse() {
+            let whoIndex = Math. floor(Math.random() * who. length);
+            let actionIndex = Math. floor(Math. random() * action. length);
+            let whatIndex = Math. floor(Math. random() * what. length);
+            let whenIndex = Math. floor(Math. random() * when. length);
+
+            let excuse = who[whoIndex] + ' ' + action[actionIndex] + ' ' + what[whatIndex] + ' ' + when[whenIndex] + '.';
+        }
+
+        function generateNewExcuse(){
+            let excuseElemente = document.getElementById ('excuse');
+            excuseElemente.textContent = generateexcuse();
+        }
+
+        window.onload = function(){
+            generateNewExcuse();
+        }
+    </script>
+  </body>
+</html>
